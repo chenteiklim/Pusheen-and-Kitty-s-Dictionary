@@ -1,0 +1,117 @@
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+
+from PIL import ImageTk, Image
+
+T=('Times',20)
+f = ('Times', 16)
+ws = Tk()
+ws.title('PythonGuides')
+ws.geometry('2000x1900')
+ws.config(bg='#fed8b1')
+
+def nextpage():
+    ws.destroy()
+    import Malay_to_English
+
+def thirdpage():
+    ws.destroy()
+    import English_to_Malay
+
+def Game():
+    ws.destroy()
+    import Game
+
+def main():
+    ws.destroy()
+    import login
+
+
+
+
+
+    
+Logout_button=Button(
+        ws, 
+        text="log-out", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[main()])
+Logout_button.grid(row=1, column=5, sticky=W, pady=20, padx=1100)
+    
+
+Label(
+    ws, 
+    text="Pusheen and Kitty's dictionary", 
+    bg='#CCCCCC',
+    font=T
+    
+    ).grid(row=3, column=5, sticky=W, pady=20,padx=540)
+
+    
+    
+
+
+M_translate_button=Button(
+    ws, 
+    text="Malay to English", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= nextpage
+    ).grid(row=4, column=5, sticky=W, pady=20,padx=600)
+    
+
+Label(
+    ws, 
+    text="Learning is fun. Let's study together with pusheen and kitty. ", 
+    bg='#CCCCCC',
+    font=f
+    ).grid(row=12, column=5, sticky=W, pady=20,padx=450)
+
+E_translate_button = Button(
+    ws,
+    width=15, 
+    text="English to Malay",
+    bg='#CCCCCC',  
+    font=f, 
+    relief=SOLID,
+    cursor='hand2',
+    command= thirdpage
+    ).grid(row=5, column=5, sticky=W, pady=10,padx=600)
+
+Game_button = Button(
+    ws,
+    width=15, 
+    text="Game",
+    bg='#CCCCCC',  
+    font=f, 
+    relief=SOLID,
+    cursor='hand2',
+    command= Game
+    ).grid(row=6, column=5, sticky=W, pady=10,padx=600)
+
+
+
+
+
+img = Image.open("C:/Users/Asus/Desktop/kitty and pusheen.png") # PIL solution
+
+
+img=img.resize((300,300))
+my=ImageTk.PhotoImage(img)
+
+Label(image=my).grid(row=7, column=5, sticky=W, pady=20,padx=550)
+
+# infinite loop
+ws.mainloop()
+
+
+    
+
+    
+
