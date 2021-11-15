@@ -1,0 +1,162 @@
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+
+from PIL import ImageTk, Image
+
+T=('Times',20)
+f = ('Times', 16)
+ws = Tk()
+ws.title('PythonGuides')
+ws.geometry('2000x2000')
+ws.config(bg='#fed8b1')
+
+
+
+Label(
+    ws, 
+    text="Category: Transport", 
+    bg='#CCCCCC',
+    font=T
+    
+    ).grid(row=0, column=5)
+
+
+img1 = Image.open("C:/Users/Asus/Desktop/Bus2.jfif") # PIL solution
+
+
+img=img1.resize((250,250))
+Transport1=ImageTk.PhotoImage(img)
+
+Label(image=Transport1).grid(row=3, column=1, sticky=W,padx=150, pady=20)    
+    
+
+
+Bus_button=Button(
+    ws, 
+    text="Bus", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Bus()]
+    ).grid(row=5, column=1, sticky=W, padx=220)
+    
+
+
+
+
+img2 = Image.open("C:/Users/Asus/Desktop/Light rail.jpg") # PIL solution
+
+
+img=img2.resize((250,250))
+LightRail1=ImageTk.PhotoImage(img)
+
+Label(image=LightRail1).grid(row=3, column=5, sticky=W)
+
+LightRail1_button=Button(
+    ws, 
+    text="Light rail", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Light_Rail()]
+    ).grid(row=5, column=5, sticky=W, padx=80)
+
+
+img3 = Image.open("C:/Users/Asus/Desktop/subway1.jpg") # PIL solution
+
+
+img=img3.resize((350,250))
+Subway1=ImageTk.PhotoImage(img)
+
+Label(image=Subway1).grid(row=3, column=6, sticky=W, padx=100)
+
+
+Subway_button=Button(
+    ws, 
+    text="Subway", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Subway()]
+    ).grid(row=5, column=6, sticky=W, pady=20, padx=180)
+
+img4 = Image.open("C:/Users/Asus/Desktop/cable car2.jpg") # PIL solution
+img=img4.resize((250,250))
+Cable_Car1=ImageTk.PhotoImage(img)
+
+Label(image=Cable_Car1).grid(row=11, column=1, sticky=W, padx=140)
+
+Cable_Car1_button=Button(
+    ws, 
+    text="Cable car", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Cable_Car()]
+    ).grid(row=12, column=1, sticky=W, padx=220)
+
+
+img5 = Image.open("C:/Users/Asus/Desktop/streetcar.jpg") # PIL solution
+img=img5.resize((250,250))
+Streetcar1=ImageTk.PhotoImage(img)
+
+Label(image=Streetcar1).grid(row=11, column=5, sticky=W)
+
+Streetcar_button=Button(
+    ws, 
+    text="Streetcar", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Streetcar()]
+    ).grid(row=12, column=5, sticky=W, pady=20, padx=100)
+
+Back_button=Button(
+    ws, 
+    text="Menu", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main()])
+Back_button.grid(row=0, column=6, pady=20)
+
+
+def main():
+    ws.destroy()
+    import Search_by_Category
+
+def Bus():
+    ws.destroy()
+    import Bus
+    
+def Light_Rail():
+    ws.destroy()
+    import Light_Rail
+
+def Subway():
+    ws.destroy()
+    import Subway
+
+def Cable_Car():
+    ws.destroy()
+    import Cable_Car
+
+def Streetcar():
+    ws.destroy()
+    import Streetcar
+
+# infinite loop
+ws.mainloop()
+
+
+    
+
+    
+
