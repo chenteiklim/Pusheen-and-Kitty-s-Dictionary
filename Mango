@@ -1,0 +1,187 @@
+from tkinter import *
+from tkinter import messagebox
+import tkinter as tk
+from PIL import ImageTk, Image
+import pygame
+
+T=('Times',18)
+f = ('Times', 14)
+English = Tk()
+English.title('PythonGuides')
+
+English.geometry('900x500')
+English.config(bg='#fed8b1')
+
+pygame.mixer.init()
+
+def main1():
+    English.destroy()
+    from English_to_Malay import mainpage19
+def main2():
+    English.destroy()
+    from Malay_to_English import mainpage19
+    
+Back_button=Button(
+    English, 
+    text="Back to English to Malay", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main1()]
+    )
+Back_button.grid(column=35, row=6, pady=20)
+
+Back_button=Button(
+    English, 
+    text="Back to Malay to English", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main2()]
+    )
+Back_button.grid(column=35, row=7)
+   
+    
+def play():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/1633847289592-voicemaker.in-speech.mp3")
+    pygame.mixer.music.play(loops=0)
+
+  
+def play2():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/1633847327582-voicemaker.in-speech.mp3")
+    pygame.mixer.music.play(loops=0)
+
+def play3():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/1633847365777-voicemaker.in-speech.mp3")
+    pygame.mixer.music.play(loops=0)
+
+def play4():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/1633847399545-voicemaker.in-speech.mp3")
+    pygame.mixer.music.play(loops=0)
+    
+
+  
+
+
+img = Image.open("C:/Users/Asus/Desktop/mango.jpg") # PIL solution
+
+
+img=img.resize((200,200))
+my=ImageTk.PhotoImage(img)
+
+Label(image=my).grid(column=2, row=3, pady=20,padx=50)
+    
+
+
+        
+M_translate_Label=Label(
+    
+    English, 
+    text="Mango/Mangga", 
+    bg='#CCCCCC',
+    font=T)
+M_translate_Label.grid(column=2, row=2, pady=20,padx=50)
+
+ 
+
+
+Name_Label=Label(
+    English,
+    text="English: Mango",
+    bg='#CCCCCC',
+    font=f)
+Name_Label.grid(column=24,row=1, pady=30,padx=50)
+
+
+Name2_Label=Label(
+    English,
+    text="A gardener gave him by way of present a large mango fruit.",
+    bg='#CCCCCC',
+    font=f)
+Name2_Label.grid(column=24, row=2, pady=20,padx=50)
+
+Nama_Label=Label(
+    English,
+    text="Malay:Mangga",
+    bg='#CCCCCC',
+    font=f)
+Nama_Label.grid(column=24, row=3,padx=50)
+
+
+Nama2_Label=Label(
+    English,
+    text="Seorang tukang kebun memberinya hadiah buah mangga yang besar.",
+    bg='#CCCCCC',
+    font=f)
+Nama2_Label.grid(column=24, row=4,padx=50)
+    
+    
+
+
+Sound_button=Button(
+    English, 
+    text="Play sound for English", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play()]
+    )
+Sound_button.grid(column=30, row=1, pady=20)
+
+
+Sound_button=Button(
+    English, 
+    text="Play sound for English", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play2()]
+    )
+Sound_button.grid(column=30, row=2, pady=20)
+
+
+
+play_button=Button(
+    English, 
+    text="Play sound for Malay", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play3()]
+    )
+play_button.grid(column=30, row=3)
+
+
+play_button=Button(
+    English, 
+    text="Play sound for Malay", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play4()]
+    )
+play_button.grid(column=30, row=4)
+
+
+
+
+# infinite loop
+English.mainloop()
+
+
+
+
+
+
+
+
+
+
+    
+
