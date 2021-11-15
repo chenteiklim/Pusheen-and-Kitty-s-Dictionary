@@ -1,0 +1,214 @@
+from tkinter import *
+from tkinter import messagebox
+import tkinter as tk
+from PIL import ImageTk, Image
+import pygame
+
+def rabbit2():
+    T=('Times',18)
+    f = ('Times', 14)
+    English = Tk()
+    English.title('PythonGuides')
+
+    English.geometry('900x500')
+    English.config(bg='#fed8b1')
+
+    pygame.mixer.init()
+    
+    def play1():
+        pygame.mixer.music.load("C:/Users/Asus/Downloads/1633849711093-voicemaker.in-speech.mp3")
+        pygame.mixer.music.play(loops=0)
+
+    def play2():
+        pygame.mixer.music.load("C:/Users/Asus/Downloads/eaa2ccbc-ed03-47db-8faf-0993b9a758dd (1).mp3")
+        pygame.mixer.music.play(loops=0)
+
+
+    def play3():
+        pygame.mixer.music.load("C:/Users/Asus/Downloads/1633849741225-voicemaker.in-speech.mp3")
+        pygame.mixer.music.play(loops=0)
+        
+
+      
+    def play4():
+        pygame.mixer.music.load("C:/Users/Asus/Downloads/190d907c-573d-4480-ac05-bdd066ef261b.mp3")
+        pygame.mixer.music.play(loops=0)
+
+    def main1():
+        English.destroy()
+        from English_to_Malay import mainpage
+
+    def main2():
+        English.destroy()
+        from Malay_to_English import mainpage
+   
+
+    M_translate_Label=Label(
+        English, 
+        text="English to Malay", 
+        bg='#CCCCCC',
+        font=T)
+    M_translate_Label.grid(column=3, row=1, pady=20,padx=50)
+
+    
+
+    M_translate_Label=Label(
+        English, 
+        text="Category: Animal/Haiwan", 
+        bg='#CCCCCC',
+        font=T)
+    M_translate_Label.grid(column=2, row=1, pady=20,padx=50)
+        
+
+    
+       
+
+
+
+    img = Image.open("C:\\Users\\Asus\\Desktop\\Image\\rabbit.jpg") # PIL solution
+
+
+    img=img.resize((200,200))
+    my=ImageTk.PhotoImage(img)
+
+    Label(image=my).grid(column=2, row=4, pady=20,padx=50)
+
+            
+    M_translate_Label=Label(
+        
+        English, 
+        text="Rabbit/Arnab", 
+        bg='#CCCCCC',
+        font=T)
+    M_translate_Label.grid(column=2, row=3, pady=20,padx=50)
+
+
+     
+    Name_Label=Label(
+        English,
+        text="English: Rabbit",
+        bg='#CCCCCC',
+        font=f)
+    Name_Label.grid(column=3,row=2, pady=60,padx=50)
+
+    Nama_Label=Label(
+        English,
+        text="Malay:Arnab",
+        bg='#CCCCCC',
+        font=f)
+    Nama_Label.grid(column=3, row=3,pady=20, padx=50)
+
+
+    Name2_Label=Label(
+        English,
+        text="Rabbit likes to eat carrot",
+        bg='#CCCCCC',
+        font=f)
+    Name2_Label.grid(column=3, row=4,pady=20, padx=50)
+
+
+
+    Nama2_Label=Label(
+        English,
+        text="Arnab suka akan lobak merah",
+        bg='#CCCCCC',
+        font=f)
+    Nama2_Label.grid(column=3, row=5, padx=50)
+        
+        
+
+
+    Sound_button=Button(
+        English, 
+        text="Play sound for English", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[play1()]
+        )
+    Sound_button.grid(column=4, row=2,pady=20)
+
+    play_button=Button(
+        English, 
+        text="Play sound for Malay", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[play2()]
+        )
+    play_button.grid(column=4, row=3)
+
+
+
+
+    Sound_button=Button(
+        English, 
+        text="Play sound for English", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[play3()]
+        )
+    Sound_button.grid(column=4, row=4)
+
+
+   
+    play_button=Button(
+        English, 
+        text="Play sound for Malay", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[play4()]
+        )
+    play_button.grid(column=4, row=5)
+
+      
+    Home_button=Button(
+        English, 
+        text="Back to English to Malay", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[main1()]
+        )
+    Home_button.grid(column=5, row=6, pady=20)
+
+    Home_button=Button(
+        English, 
+        text="Back to Malay to English", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[main2()]
+        )
+    Home_button.grid(column=5, row=7)
+
+
+
+
+    
+
+    # infinite loop
+    English.mainloop()
+rabbit2()
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
