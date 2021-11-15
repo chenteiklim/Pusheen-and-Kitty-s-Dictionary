@@ -1,0 +1,155 @@
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+
+from PIL import ImageTk, Image
+
+
+T=('Times',20)
+f = ('Times', 16)
+ws = Tk()
+ws.title('PythonGuides')
+ws.geometry('2000x2000')
+ws.config(bg='#fed8b1')
+
+
+"apple", "mango", "orange", "pineapple", "durian"
+
+
+Label(
+    ws, 
+    text="Category: Fruit", 
+    bg='#CCCCCC',
+    font=T
+    
+    ).grid(row=0, column=5)
+
+
+img = Image.open("C:/Users/Asus/Desktop/apple1.jpg") # PIL solution
+
+
+img1=img.resize((250,250))
+apple1=ImageTk.PhotoImage(img1)
+
+Label(image=apple1).grid(row=3, column=1, sticky=W,padx=150, pady=20)    
+    
+
+
+apple_button=Button(
+    ws, 
+    text="Apple", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[apple()]
+    ).grid(row=5, column=1, sticky=W, padx=220)
+    
+
+
+
+img2 = Image.open("C:/Users/Asus/Desktop/mango1.jpg") # PIL solution
+
+
+img=img2.resize((250,250))
+mango1=ImageTk.PhotoImage(img)
+
+Label(image=mango1).grid(row=3, column=5, sticky=W)
+
+
+mango_button=Button(
+    ws, 
+    text="Mango", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[mango()]
+    ).grid(row=5, column=5, sticky=W, padx=80)
+
+img3 = Image.open("C:/Users/Asus/Desktop/Orange1.jpg") # PIL solution
+img=img3.resize((250,250))
+Orange1=ImageTk.PhotoImage(img)
+
+Label(image=Orange1).grid(row=3, column=6, sticky=W, padx=100)
+
+Orange_button=Button(
+    ws, 
+    text="Orange", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[orange()]
+    ).grid(row=5, column=6, sticky=W, pady=20, padx=180)
+
+img4 = Image.open("C:/Users/Asus/Desktop/pineapple1.png") # PIL solution
+img=img4.resize((250,250))
+pineapple1=ImageTk.PhotoImage(img)
+
+Label(image=pineapple1).grid(row=11, column=1, sticky=W, padx=140)
+
+pineapple_button=Button(
+    ws, 
+    text="Pineapple", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[pineapple()]
+    ).grid(row=12, column=1, sticky=W, padx=220)
+
+
+img5 = Image.open("C:/Users/Asus/Downloads/durian1.jpg") # PIL solution
+img=img5.resize((250,250))
+Durian1=ImageTk.PhotoImage(img)
+
+Label(image=Durian1).grid(row=11, column=5, sticky=W)
+
+Durian_button=Button(
+    ws, 
+    text="Durian", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[durian()]
+    ).grid(row=12, column=5, sticky=W, pady=20, padx=100)
+
+Back_button=Button(
+    ws, 
+    text="Menu", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main()])
+Back_button.grid(row=0, column=6, pady=20)
+
+
+def main():
+    ws.destroy()
+    import Search_by_Category
+
+
+def apple():
+    ws.destroy()
+    import apple
+    
+def mango():
+    ws.destroy()
+    import mango
+def pineapple():
+    ws.destroy()
+    import pineapple
+
+def orange():
+    ws.destroy()
+    import orange
+def durian():
+    ws.destroy()
+    import durian
+
+# infinite loop
+ws.mainloop()
+
