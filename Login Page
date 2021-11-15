@@ -1,0 +1,139 @@
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+
+
+f = ('Times', 14)
+
+
+
+ 
+    
+ws = Tk()
+ws.title('PythonGuides')
+ws.geometry('2000x1900')
+ws.config(bg='#fed8b1')
+
+           
+def close_window():
+    command=ws.destroy()
+    import translation
+
+
+def main():
+    ws.destroy()
+    import register2
+    
+
+   
+    
+def login_response():
+    try:
+        con = sqlite3.connect('userdata.db')
+        c = con.cursor()
+        for row in c.execute("Select * from record"):
+            username = row[1]
+            pwd = row[5]
+        
+    except Exception as ep:
+        messagebox.showerror('', ep)
+
+    uname = email_tf.get()
+    upwd = pwd_tf.get()
+    check_counter=0
+    if uname == "":
+       warn = "Username can't be empty"
+    else:
+        check_counter += 1
+    if upwd == "":
+        warn = "Password can't be empty"
+    else:
+        check_counter += 1
+    if check_counter == 2:
+        if (uname == username and upwd == pwd):
+            messagebox.showinfo('Login Status', 'Logged in Successfully!')
+            
+            close_window()
+        
+        else:
+            messagebox.showerror('Login Status', 'invalid username or password')
+    else:
+        messagebox.showerror('', warn)
+
+
+# widgets
+
+
+left_frame = Frame(
+    ws,
+    bd=2, 
+    bg='#CCCCCC',   
+    relief=SOLID, 
+    pady=10,
+    width=50,
+
+   
+    )
+
+Label(
+    left_frame, 
+    text="Enter Email", 
+    bg='#CCCCCC',
+    font=f).grid(row=0, column=0, sticky=W, pady=10)
+
+Label(
+    left_frame, 
+    text="Enter Password", 
+    bg='#CCCCCC',
+    font=f
+    ).grid(row=1, column=0, pady=1, sticky=W)
+
+email_tf = Entry(
+    left_frame, 
+    font=f
+    )
+pwd_tf = Entry(
+    left_frame, 
+    font=f,
+    show='*'
+    )
+login_btn = Button(
+    left_frame, 
+    width=15, 
+    text='Login', 
+    font=f, 
+    relief=SOLID,
+    cursor='hand2',
+    command = login_response
+    )
+
+Back_button=Button(
+    ws, 
+    text="Back to sign-up", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main()]
+    )
+Back_button.grid(column=2, row=1, sticky=W, pady=20, padx=900)
+
+
+
+
+# widgets placement
+email_tf.grid(row=0, column=1, pady=10, padx=20, sticky=W)
+pwd_tf.grid(row=1, column=1, pady=10, padx=20, sticky=W)
+login_btn.grid(row=2, column=1, pady=10, padx=20, sticky=W)
+left_frame.grid(row=7, column=2, pady=10, padx=550, sticky=W)
+
+
+
+# infinite loop
+ws.mainloop()
+
+
+
+
+
+
