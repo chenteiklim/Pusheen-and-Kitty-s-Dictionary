@@ -1,0 +1,162 @@
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+
+from PIL import ImageTk, Image
+
+T=('Times',20)
+f = ('Times', 16)
+ws = Tk()
+ws.title('PythonGuides')
+ws.geometry('2000x2000')
+ws.config(bg='#fed8b1')
+
+    
+
+Label(
+    ws, 
+    text="Kategori: Pekerjaan", 
+    bg='#CCCCCC',
+    font=T
+    
+    ).grid(row=0, column=5)
+
+
+img = Image.open("C:/Users/Asus/Desktop/doctor.jfif") # PIL solution
+
+
+img1=img.resize((250,250))
+Doctor1=ImageTk.PhotoImage(img1)
+
+Label(image=Doctor1).grid(row=3, column=1, sticky=W,padx=150, pady=20)    
+    
+
+
+Doctor_button=Button(
+    ws, 
+    text="Doktor", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Doctor()]
+    ).grid(row=5, column=1, sticky=W, padx=220)
+    
+
+
+
+
+img2 = Image.open("C:/Users/Asus/Desktop/scientist2.jfif") # PIL solution
+
+
+img=img2.resize((250,250))
+Scientist1=ImageTk.PhotoImage(img)
+
+Label(image=Scientist1).grid(row=3, column=5, sticky=W)
+
+Scientist_button=Button(
+    ws, 
+    text="Saintis", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Scientist()]
+    ).grid(row=5, column=5, sticky=W, padx=80)
+
+
+img3 = Image.open("C:/Users/Asus/Desktop/nurse2.png") # PIL solution
+
+
+img=img3.resize((250,250))
+Nurse1=ImageTk.PhotoImage(img)
+
+Label(image=Nurse1).grid(row=3, column=6, sticky=W, padx=100)
+
+
+Nurse_button=Button(
+    ws, 
+    text="Jururawat", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Nurse()]
+    ).grid(row=5, column=6, sticky=W, pady=20, padx=180)
+
+img4 = Image.open("C:/Users/Asus/Desktop/businessman2.jpg") # PIL solution
+img=img4.resize((250,250))
+Businessman1=ImageTk.PhotoImage(img)
+
+Label(image=Businessman1).grid(row=11, column=1, sticky=W, padx=140)
+
+Businessman_button=Button(
+    ws, 
+    text="Peniaga", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Businessman()]
+    ).grid(row=12, column=1, sticky=W, padx=220)
+
+
+img5 = Image.open("C:/Users/Asus/Desktop/accountant1.jpg") # PIL solution
+img=img5.resize((250,250))
+Accountant1=ImageTk.PhotoImage(img)
+
+Label(image=Accountant1).grid(row=11, column=5, sticky=W)
+
+Accountant_button=Button(
+    ws, 
+    text="Akauntan", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[Accountant()]
+    ).grid(row=12, column=5, sticky=W, pady=20, padx=100)
+
+Back_button=Button(
+    ws, 
+    text="Menu", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main()])
+Back_button.grid(row=0, column=6, pady=20)
+
+
+def main():
+    ws.destroy()
+    import Cari_Mengikut_Kategori
+
+def Doctor():
+    ws.destroy()
+    import Doctor
+    
+def Scientist():
+    ws.destroy()
+    import Scientist
+
+def Accountant():
+    ws.destroy()
+    import Accountant
+
+def Nurse():
+    ws.destroy()
+    import Nurse
+
+def Businessman():
+    ws.destroy()
+    import Businessman
+
+# infinite loop
+ws.mainloop()
+
+
+    
+
+    
+
