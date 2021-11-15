@@ -1,0 +1,188 @@
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+
+from PIL import ImageTk, Image
+
+def mainpage():
+
+    T=('Times',20)
+    f = ('Times', 16)
+    ws = Tk()
+    ws.title('PythonGuides')
+    ws.geometry('2000x2000')
+    ws.config(bg='#fed8b1')
+
+
+    Label(
+        ws, 
+        text="Cari Mengikut Kategori", 
+        bg='#CCCCCC',
+        font=T
+        
+        ).grid(row=0, column=5)
+
+
+    img = Image.open("C:/Users/Asus/Desktop/Animal.jpg") # PIL solution
+
+
+    img1=img.resize((250,250))
+    Animal1=ImageTk.PhotoImage(img1)
+
+    Label(image=Animal1).grid(row=3, column=1, sticky=W,padx=150, pady=20)    
+        
+
+
+    Animal_button=Button(
+        ws, 
+        text="Haiwan", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[Animal()]
+        ).grid(row=5, column=1, sticky=W, padx=220)
+        
+
+
+
+
+    img2 = Image.open("C:/Users/Asus/Desktop/occupation.jpg") # PIL solution
+
+
+    img=img2.resize((250,250))
+    Occupation1=ImageTk.PhotoImage(img)
+
+    Label(image=Occupation1).grid(row=3, column=5, sticky=W)
+
+    Occupation_button=Button(
+        ws, 
+        text="Pekerjaan", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[Occupation()]
+        ).grid(row=5, column=5, sticky=W, padx=80)
+
+
+    img3 = Image.open("C:/Users/Asus/Desktop/transport.png") # PIL solution
+
+
+    img=img3.resize((250,250))
+    Transport1=ImageTk.PhotoImage(img)
+
+    Label(image=Transport1).grid(row=3, column=6, sticky=W, padx=100)
+
+
+    Transport_button=Button(
+        ws, 
+        text="Pengangkutan", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[Transport()]
+        ).grid(row=5, column=6, sticky=W, pady=20, padx=180)
+
+    img4 = Image.open("C:/Users/Asus/Desktop/vehicle.png") # PIL solution
+    img=img4.resize((250,250))
+    Vehicle1=ImageTk.PhotoImage(img)
+
+    Label(image=Vehicle1).grid(row=11, column=1, sticky=W, padx=140)
+
+
+    Vehicle_button=Button(
+        ws, 
+        text="Kenderaan", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[Vehicle()]
+        ).grid(row=12, column=1, sticky=W, padx=220)
+
+
+    img5 = Image.open("C:/Users/Asus/Desktop/fruit.jfif") # PIL solution
+    img=img5.resize((250,250))
+    Fruit1=ImageTk.PhotoImage(img)
+
+    Label(image=Fruit1).grid(row=11, column=5, sticky=W)
+
+
+    Fruit_button=Button(
+        ws, 
+        text="Buah-buahan", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[Fruit()]
+        ).grid(row=12, column=5, sticky=W, pady=20, padx=100)
+
+    Back_button=Button(
+        ws, 
+        text="Menu", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[main()])
+    Back_button.grid(row=0, column=6, pady=20)
+
+
+
+
+    def Animal():
+        ws.destroy()
+        import Haiwan
+
+    def Occupation():
+        ws.destroy()
+        import Pekerjaan
+
+    def Transport():
+        ws.destroy()
+        import Pengangkutan
+
+    def Vehicle():
+        ws.destroy()
+        import Kenderaan
+
+    def Fruit():
+        ws.destroy()
+        import Buah_buahan
+
+    def main():
+        ws.destroy()
+        import Malay_to_English
+
+
+    # infinite loop
+    ws.mainloop()
+
+mainpage()
+
+def mainpage2():
+    mainpage()
+mainpage2()
+
+def mainpage3():
+   mainpage2()
+
+mainpage3()
+
+
+def mainpage4():
+   mainpage3()
+
+mainpage4()
+
+
+def mainpage5():
+   mainpage4()
+
+mainpage5()
+
+    
+
