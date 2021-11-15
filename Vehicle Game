@@ -1,0 +1,131 @@
+from tkinter import *
+from tkinter import messagebox
+import sqlite3
+
+from PIL import ImageTk, Image
+from tkinter import BOTH,END,LEFT
+
+T=('Times',20)
+f = ('Times', 16)
+ws = Tk()
+ws.title('PythonGuides')
+ws.geometry('2000x2000')
+ws.config(bg='#fed8b1')
+
+
+def check():
+    
+    typed=my_entry.get()
+
+    if typed=='Boat':
+        t1.delete("1.0","end")
+        t1.insert(END,"Correct")
+        
+    else:
+        t1.delete("1.0","end")
+        t1.insert(END,"Wrong answer, please try again!")
+
+
+def main():
+    ws.destroy()
+    import Game
+
+Label(
+    ws, 
+    text="Game", 
+    bg='#CCCCCC',
+    font=T
+
+    
+    ).grid(row=1, column=1, sticky=W, pady=20, padx=350)
+
+Label(
+    ws, 
+    text="Choose the correct answer and type in the space provided", 
+    bg='#CCCCCC',
+    font=f  
+    ).grid(row=2, column=1,stick=W, padx=150)
+
+Label(
+    ws, 
+    text="airplane", 
+    bg='#CCCCCC',
+    font=f  
+    ).grid(row=4, column=1, sticky=W, padx=180)
+
+Label(
+    ws, 
+    text="motorbike", 
+    bg='#CCCCCC',
+    font=f  
+    ).grid(row=4, column=1,sticky=W,  padx=280)
+
+Label(
+    ws, 
+    text="bicycle", 
+    bg='#CCCCCC',
+    font=f  
+    ).grid(row=4, column=1, sticky=W, padx=400)
+
+Label(
+    ws, 
+    text="Boat", 
+    bg='#CCCCCC',
+    font=f  
+    ).grid(row=4, column=1,sticky=W,  padx=480, pady=20)
+
+img = Image.open("C:/Users/Asus/Desktop/ferry.jfif") # PIL solution
+img1=img.resize((250,250))
+Animal=ImageTk.PhotoImage(img1)
+
+Label(image=Animal).grid(row=3, column=1, sticky=W,padx=250, pady=20)
+
+        
+my_entry=Entry(
+    ws,
+    font=f,
+    bg='#CCCCCC',
+    relief=SOLID)
+my_entry.grid(row=5, column=1, sticky=W, padx=250)
+
+
+Check_button=Button(
+    ws, 
+    text="Check answer", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[check()])
+Check_button.grid(row=6, column=1, sticky=W, pady=20, padx=300)
+
+t1=Text(
+    ws,
+    bg='#fed8b1',
+    font=f,
+    height=1,
+    width=40   
+    )
+t1.grid(row=7, column=1, sticky=W,padx=150)
+
+            
+
+Back_button=Button(
+    ws, 
+    text="Menu", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main()])
+Back_button.grid(row=1,column=1,sticky=W,  pady=20, padx=700)
+
+
+# infinite loop
+ws.mainloop()
+
+
+    
+
+    
+
