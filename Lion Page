@@ -1,0 +1,209 @@
+from tkinter import *
+from tkinter import messagebox
+import tkinter as tk
+from PIL import ImageTk, Image
+import pyttsx3
+import pygame
+
+T=('Times',18)
+f = ('Times', 14)
+English = Tk()
+English.title('PythonGuides')
+
+English.geometry('900x500')
+English.config(bg='#fed8b1')
+
+pygame.mixer.init()
+
+
+   
+    
+def play():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/37c3843d-23ba-44bb-862f-ac15b46c26f1.mp3")
+    pygame.mixer.music.play(loops=0)
+
+  
+def play2():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/ed92f65e-a254-4f51-8eb6-277f5f5ed61c.mp3")
+    pygame.mixer.music.play(loops=0)
+
+def play3():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/0fc7d046-92b5-42e0-99b5-b2eb2cd23820.mp3")
+    pygame.mixer.music.play(loops=0)
+
+def play4():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/d6d75f19-5468-4c12-abaf-225a33c0f6df.mp3")
+    pygame.mixer.music.play(loops=0)
+    
+
+    
+def play_lion():
+    pygame.mixer.music.load("C:/Users/Asus/Downloads/d6a79155-e469-4a5c-a816-aba627a15b70.mp3")
+    pygame.mixer.music.play(loops=0)    
+   
+
+
+
+img = Image.open("C:/Users/Asus/Desktop/lion.jpg") # PIL solution
+
+
+img=img.resize((200,150))
+my=ImageTk.PhotoImage(img)
+
+Label(image=my).grid(column=1, row=3, pady=20,padx=50)
+    
+
+
+        
+M_translate_Label=Label(
+    
+    English, 
+    text="Lion/Singa", 
+    bg='#CCCCCC',
+    font=T)
+M_translate_Label.grid(column=1, row=2, pady=20,padx=50)
+
+ 
+
+
+Name_Label=Label(
+    English,
+    text="English: Lion",
+    bg='#CCCCCC',
+    font=f)
+Name_Label.grid(column=2,row=1, pady=30,padx=50)
+
+
+Name2_Label=Label(
+    English,
+    text="A lion eats meat",
+    bg='#CCCCCC',
+    font=f)
+Name2_Label.grid(column=2, row=2, pady=20,padx=50)
+
+Nama_Label=Label(
+    English,
+    text="Malay:Singa",
+    bg='#CCCCCC',
+    font=f)
+Nama_Label.grid(column=2, row=3,padx=50)
+
+
+Nama2_Label=Label(
+    English,
+    text="Singa suka akan makan daging",
+    bg='#CCCCCC',
+    font=f)
+Nama2_Label.grid(column=2, row=4,padx=50)
+    
+    
+
+
+Sound_button=Button(
+    English, 
+    text="Play sound for English", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play()]
+    )
+Sound_button.grid(column=3, row=1, pady=20)
+
+
+Sound_button=Button(
+    English, 
+    text="Play sound for English", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play2()]
+    )
+Sound_button.grid(column=3, row=2, pady=20)
+
+
+
+play_button=Button(
+    English, 
+    text="Play sound for Malay", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play3()]
+    )
+play_button.grid(column=3, row=3)
+
+
+play_button=Button(
+    English, 
+    text="Play sound for Malay", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[play4()]
+    )
+play_button.grid(column=3, row=4)
+
+
+Back_button=Button(
+    English, 
+    text="Back to English to Malay", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main1()]
+    )
+Back_button.grid(column=4, row=5, pady=20)
+
+Back_button=Button(
+    English, 
+    text="Back to Malay to English", 
+    bg='#CCCCCC',
+    font=f,
+    relief=SOLID,
+    cursor='hand2',
+    command= lambda:[main2()]
+    )
+Back_button.grid(column=4, row=7)  
+
+def main1():
+    English.destroy()
+    from English_to_Malay import mainpage3
+
+def main2():
+    English.destroy()
+    from Malay_to_English import mainpage3
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+# infinite loop
+English.mainloop()
+
+
+
+
+
+
+
+
+
+
+    
+
