@@ -1,0 +1,371 @@
+from tkinter import *
+from tkinter import messagebox
+import tkinter as tk
+from PIL import ImageTk, Image
+def mainpage():
+    def main():
+        English.destroy()
+        import translation
+
+    def Category():
+        English.destroy()
+        import Search_by_Category
+
+    
+
+    T=('Times',18)
+    f = ('Times', 14)
+    English = Tk()
+    English.title("Pusheen and Kitty's Dictionary")
+
+    English.geometry('2000x1900')
+    English.config(bg='#fed8b1')
+
+
+    def update(data):
+        my_list.delete(0,END)
+        for item in data:
+            my_list.insert(END,item)
+        
+    def fillout(e):
+        my_entry.delete(0,END)
+        my_entry.insert(0,my_list.get(ACTIVE))
+
+    def check(e):
+        typed=my_entry.get()
+
+        if typed=='':
+            data=Vocabulary
+        else:
+            data=[]
+            for item in Vocabulary:
+                if typed.lower() in item.lower():
+                    data.append(item)
+                
+        update(data)
+    typelist=["Rabbit", "Tiger", "Lion", "Dog", "Cat", "Doctor","Scientist", "Nurse", "Businessman", "Accountant", "Bus", "Light_Rail", "Subway", "cable_car", "Streetcar",  "car", "motorbikes", "bicycle", "boat", "airplane", "apple", "mango", "orange", "pineapple", "durian"]
+   
+    def check_counter():
+           
+        if my_entry.get()==typelist[0] :
+            English.destroy()  
+            import Rabbit
+        elif my_entry.get()==typelist[1] :
+            English.destroy()
+            import Tiger
+        elif my_entry.get()==typelist[2] :
+            English.destroy()
+            import Lion
+        elif my_entry.get()==typelist[3] :
+            English.destroy()
+            import Dog
+        elif my_entry.get()==typelist[4] :
+            English.destroy()
+            import Cat
+        elif my_entry.get()==typelist[5] :
+            English.destroy()
+            import Doctor
+        elif my_entry.get()==typelist[6] :
+            English.destroy()
+            import Scientist
+        elif my_entry.get()==typelist[7] :
+            English.destroy()
+            import Nurse
+        elif my_entry.get()==typelist[8] :
+            English.destroy()
+            import Businessman
+        elif my_entry.get()==typelist[9] :
+            English.destroy()
+            import Accountant
+        elif my_entry.get()==typelist[10]:
+            English.destroy()
+            import Bus
+        elif my_entry.get()==typelist[11] :
+            English.destroy()
+            import Light_Rail
+        elif my_entry.get()==typelist[12] :
+            English.destroy()
+            import Subway
+        elif my_entry.get()==typelist[13] :
+            English.destroy()
+            import cable_car
+        elif my_entry.get()==typelist[14] :
+            English.destroy()
+            import Streetcar
+        elif my_entry.get()==typelist[15]:
+            English.destroy()
+            import car
+        elif my_entry.get()==typelist[16] :
+            English.destroy()
+            import motorbikes
+        elif my_entry.get()==typelist[17] :
+            English.destroy()
+            import bicycle
+        elif my_entry.get()==typelist[18] :
+            English.destroy()
+            import boat
+        elif my_entry.get()==typelist[19] :
+            English.destroy()
+            import airplane
+        elif my_entry.get()==typelist[20]:
+            English.destroy()
+            import apple
+        elif my_entry.get()==typelist[21] :
+            English.destroy()
+            import mango
+        elif my_entry.get()==typelist[22] :
+            English.destroy()
+            import orange
+        elif my_entry.get()==typelist[23] :
+            English.destroy()
+            import pineapple
+        elif my_entry.get()==typelist[24] :
+            English.destroy()
+            import durian
+
+        
+         
+
+
+
+
+    Search_by_category_button=Button(
+        English, 
+        text="Seacrh by Category", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[Category()])
+    Search_by_category_button.grid(row=8, column=4,pady=20, sticky=W, padx=600)
+
+    
+
+    Back_button=Button(
+        English, 
+        text="Main menu", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[main()])
+    Back_button.grid(row=1, column=4, pady=20, padx=1000)
+
+    img = Image.open("C:/Users/Asus/Desktop/cute picture.jfif") # PIL solution
+
+    img1=img.resize((250,250))
+    Animal=ImageTk.PhotoImage(img1)
+
+    Label(image=Animal).grid(row=6, column=4, sticky=W, pady=20, padx=100)
+
+    img = Image.open("C:/Users/Asus/Desktop/rilakuma.jfif") # PIL solution
+
+    img2=img.resize((250,250))
+    Rilakuma=ImageTk.PhotoImage(img2)
+
+    Label(image=Rilakuma).grid(row=6, column=4, sticky=W, pady=20, padx=1000)  
+    
+
+
+
+
+
+
+
+    M_translate_Label=Label(
+        English, 
+        text="English to Malay", 
+        bg='#CCCCCC',
+        font=T)
+    M_translate_Label.grid(row=2, column=4, sticky=W, pady=20, padx=600)
+        
+
+
+    instruction_Label=Label(
+        English,
+        text="Click the following words to translate from English to Malay",
+        bg='#CCCCCC',
+        font=f)
+    instruction_Label.grid(row=3, column=4, sticky=W, pady=20, padx=470)
+        
+        
+
+
+    my_entry=Entry(
+        English,
+        font=f,
+        bg='#CCCCCC',
+        relief=SOLID)
+    my_entry.grid(row=5, column=4, sticky=W, pady=20, padx=600)
+        
+        
+
+    my_list=Listbox(
+        English,
+        width=50)
+    my_list.grid(row=6, column=4, sticky=W, pady=20, padx=550)
+        
+        
+
+
+    Vocabulary=["Rabbit", "Tiger", "Lion", "Dog", "Cat", "Doctor","Scientist", "Nurse", "Businessman", "Accountant", "Bus", "Light_Rail", "Subway", "cable_car", "Streetcar", "car", "motorbikes", "bicycle", "boat", "airplane", "apple", "mango", "orange", "pineapple", "durian"]    
+    update(Vocabulary)
+
+    #Create a binding on the listbox
+    my_list.bind("<<ListboxSelect>>",fillout)
+
+    #Create a binding on entry box
+    my_entry.bind("<KeyRelease>",check)
+
+    Search_button=Button(
+        English, 
+        text="Search", 
+        bg='#CCCCCC',
+        font=f,
+        relief=SOLID,
+        cursor='hand2',
+        command= lambda:[check_counter()])
+    Search_button.grid(row=7, column=4, sticky=W, pady=20, padx=650)
+
+    
+
+    # infinite loop
+    English.mainloop()
+
+mainpage()
+
+def mainpage2():
+   mainpage()
+
+mainpage2()
+
+
+def mainpage3():
+   mainpage2()
+
+mainpage3()
+
+
+def mainpage4():
+   mainpage3()
+
+mainpage4()
+
+
+def mainpage5():
+   mainpage4()
+
+mainpage5()
+
+
+def mainpage6():
+   mainpage5()
+
+mainpage6()
+
+
+def mainpage7():
+   mainpage6()
+
+mainpage7()
+
+
+def mainpage8():
+   mainpage7()
+
+mainpage8()
+
+
+def mainpage9():
+   mainpage8()
+
+mainpage9()
+
+
+def mainpage10():
+   mainpage9()
+
+mainpage10()
+
+
+def mainpage11():
+   mainpage10()
+
+mainpage11()
+
+
+def mainpage12():
+   mainpage11()
+
+mainpage12()
+
+
+def mainpage13():
+   mainpage12()
+
+mainpage13()
+
+
+def mainpage14():
+   mainpage13()
+
+mainpage14()
+
+
+def mainpage15():
+   mainpage14()
+
+mainpage15()
+
+
+def mainpage16():
+   mainpage15()
+
+mainpage16()
+
+
+def mainpage17():
+   mainpage16()
+
+mainpage17()
+
+
+def mainpage18():
+   mainpage17()
+
+mainpage18()
+
+
+def mainpage19():
+   mainpage18()
+
+mainpage19()
+
+
+def mainpage20():
+   mainpage19()
+
+mainpage20()
+
+
+def mainpage21():
+   mainpage20()
+
+mainpage21()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
